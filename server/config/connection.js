@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require("dotenv").config();
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/mindGjm',
+  process.env.MONGODB_URI || "mongodb://localhost/footbal_info",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
