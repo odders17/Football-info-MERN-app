@@ -1,7 +1,4 @@
-const Token = process.env.Token;
-
-// api for pl 
-// http://api.football-data.org/v2/competitions/2003
+const Token = process.env.REACT_APP_API_KEY;
 
 // standings for comp
 export const standingsSearch = async (url) => {
