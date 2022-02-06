@@ -19,11 +19,10 @@ function TeamCard() {
 
   return league.map((l) => (
     <div>
-         position {l.position} {l.team.name} points {l.points}
+      position {l.position} {l.team.name} points {l.points}
       <p>
-     wins { l.won} draws { l.draw} lost {l.lost}
+        games played {l.playedGames} wins {l.won} draws {l.draw} lost {l.lost}
       </p>
-
       <img src={l.team.crestUrl} alt={l.team.name} />
     </div>
   ));
