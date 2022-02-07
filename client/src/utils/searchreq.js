@@ -1,4 +1,4 @@
-const Token = process.env.REACT_APP_API_KEY;
+const TOKEN = process.env.API_KEY;
 
 // standings for comp
 export const standingsSearch = async (url) => {
