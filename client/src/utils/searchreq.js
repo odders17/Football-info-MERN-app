@@ -5,7 +5,7 @@ export const standingsSearch = async (url) => {
   let req = await fetch(url, {
     method: "GET",
     headers: {
-      "X-Auth-Token": TOKEN,
+      "X-Auth-Token": "33de8838b4474a529251e6f6b6944791",
     },
   })
     .then((res) => {
