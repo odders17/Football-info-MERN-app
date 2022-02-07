@@ -17,15 +17,29 @@ function TeamCard() {
   }, []);
   console.log("league ", league);
 
-  return league.map((l) => (
-    <div>
-      position {l.position} {l.team.name} points {l.points}
-      <p>
-        games played {l.playedGames} wins {l.won} draws {l.draw} lost {l.lost}
-      </p>
-      <img src={l.team.crestUrl} alt={l.team.name} />
+  return (
+    <div className="flex flex-wrap m-2">
+      {league
+        ? league.map((teams, index) => (
+            <div
+              key={index}
+              className="bg-green-300 m-2 rounded-xl shadow-xl m-2 p-2"
+            >
+              position {teams.position} {teams.team.name} points {teams.points}
+              <p>
+                games played {teams.playedGames} wins {teams.won} draws{" "}
+                {teams.draw} lost {teams.lost}
+              </p>
+              <img
+                src={teams.team.crestUrl}
+                alt={teams.team.name}
+                className="w-20"
+              />
+            </div>
+          ))
+        : "Loading"}
     </div>
-  ));
+  );
 }
 
 export default TeamCard;
