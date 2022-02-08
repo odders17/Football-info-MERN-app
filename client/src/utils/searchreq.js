@@ -22,13 +22,25 @@ export const standingsSearch = async (url) => {
 
 // team data
 export const teamSearch = async (query) => {
-  const teamData = await fetch(
-    // api key needed
-    `https://api.football-data.org/v2/teams/${query.id}`
-  );
+  const url = `https://api.football-data.org/v2/teams/${query.id}`
+  let req = await fetch(url, {
+    method: "GET",
+    headers: {
+      "X-Auth-Token": "33de8838b4474a529251e6f6b6944791",
+    },
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw Error(res.statusText);
+      }
+    })
 
-  const resp = await teamData.json();
-  return resp;
+    .catch((error) => console.error(error));
+  return req;
+    
+
 };
 
 // player dets api.
