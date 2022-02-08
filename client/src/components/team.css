@@ -1,0 +1,6 @@
+.teamStyle{
+    @apply m-2 rounded-xl shadow-xl m-2 p-2 border-2 border-black columns-2;
+}
+.container{
+    @apply flex-auto m-2;
+}
