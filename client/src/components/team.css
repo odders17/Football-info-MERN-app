@@ -4,3 +4,8 @@
 .container{
     @apply flex-auto m-2;
 }
+.statcolumn{ @apply grid-rows-2  flex-wrap flex-1 max-w-[20%] m-0 mt-6 mb-6 
+
+}
+.statrow{ @apply  text-2xl
+}
