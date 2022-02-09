@@ -10,17 +10,6 @@ return teamData
 
 function Team() {
 
-  const containerStyle = {
-    display:'flex flex-col',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    position: 'relative',
-    height: '70%',
-    width: '70%',
-    marginTop: '70px',
-    marginLeft: '20px',
-    marginBottom: '70px', 
-};
 
     const [teamData, setTeamData] = useState(null)
 
@@ -36,33 +25,33 @@ function Team() {
 
         <>
       {teamData?(
-      <div className="bg-black text-white p-20"style={containerStyle}>
-      <div  styles={{ backgroundImage:`url(${pitch})` }}></div>
-      <h1  className="text-2xl">Team: {JSON.stringify(teamData.name)}</h1>
-      <h2>{teamData.area.name}</h2>
-      <h3>Founded: {teamData.founded}</h3>
-      <h3>Ground: {teamData.venue}</h3>
-      <img src={teamData.crestUrl} className="w-16"alt="crest" />
+      <div className="bg-black text-black p-20">
+      <div style={{backgroundImage:`url(${pitch})`,backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+      <div className="bg-white p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 grid grid-cols-1 justify-center" >
+      <h1  className="text-2xl m-auto">Team: {JSON.stringify(teamData.name)}</h1>
+      <h2 className="m-auto">{teamData.area.name}</h2>
+      <h3 className="m-auto">Founded: {teamData.founded}</h3>
+      <h3 className="m-auto">Ground: {teamData.venue}</h3>
+      <img src={teamData.crestUrl} className="w-16 m-auto" alt="crest" />
+        </div>
 
-
-      <div className="flex flex-col">{teamData.squad.map((player,index) => 
-      player.position==="Goalkeeper"?<p key={index}>{player.name}: <span className="font-bold text-blue-300">{player.position}</span></p>:""
+      <div className="grid grid-cols-2">{teamData.squad.map((player,index) => 
+      player.position==="Goalkeeper"?<div><p className="bg-white p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap" key={index}>{player.name}: <span className="font-bold text-blue-300 ">{player.position}</span></p></div>:""
        )
       }  
       {teamData.squad.map((player,index) => 
-      player.position==="Defender"?<p key={index}>{player.name}: <span className="font-bold text-blue-300">{player.position}</span></p>:""
+      player.position==="Defender"?<p className="bg-white p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap" key={index}>{player.name}: <span className="font-bold text-blue-300">{player.position}</span></p>:""
        )
       }
         {teamData.squad.map((player,index) => 
-      player.position==="Midfielder"?<p key={index}>{player.name}: <span className="font-bold text-blue-300">{player.position}</span></p>:""
+      player.position==="Midfielder"?<p className="bg-white p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap" key={index}>{player.name}: <span className="font-bold text-blue-300">{player.position}</span></p>:""
        )
       }  
     {teamData.squad.map((player,index) => 
-      player.position==="Attacker"?<p key={index}>{player.name}: <span className="font-bold text-blue-300">{player.position}</span></p>:""
+      player.position==="Attacker"?<p className="bg-white p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap" key={index}>{player.name}: <span className="font-bold text-blue-300">{player.position}</span></p>:""
        )
-      }</div>
-      <img src={pitch} alt="pitch" span className="flex"/>     
-      </div>):"Loading..."}
+      }</div>   
+      </div></div>):"Loading..."}
       </>
       
     );
