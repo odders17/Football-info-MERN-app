@@ -9,7 +9,9 @@ module.exports = {
       display: ["Oswald"],
       body: ['"Open Sans"'],
     },
-    extend: {},
+    extend: {
+      pitchBg: "url('./src/images/pitch.jpg')"
+    },
   },
   plugins: [],
 };
