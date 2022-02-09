@@ -12,7 +12,6 @@ function App() {
   return (
     // https://tailwindcss.com/docs/background-attachment#scroll
     <div className="bg-scroll" style={backgroundstyle}>
-      {/* "<img src={trophy} className="w-full" alt="trophy" /> */}
       <Router>
         <Navbar />
         <TeamCard />
