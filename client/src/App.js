@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { getApi } from "./utils/queries";
-
 import TeamCard from "./components/Teams";
+import trophy from "./images/trophybackground.png";
 import Navbar from "./components/Navbar";
-
 function App() {
-  const { loading, data } = useQuery(getApi);
-  console.log("data", data["getApi"]["apiKey"]);
+  const backgroundstyle = {
+    backgroundImage: `url(
+      ${trophy}
+      )`,
+  };
   return (
-    <Router>
-      {/* <Navbar /> */}
-      {loading ? "...Loading" : <TeamCard ApiKEy={data["getApi"]["apiKey"]} />}
-    </Router>
+    // https://tailwindcss.com/docs/background-attachment#scroll
+    <div className="bg-scroll" style={backgroundstyle}>
+      <Router>
+        <Navbar />
+        <TeamCard />
+      </Router>
+    </div>
   );
 }
 

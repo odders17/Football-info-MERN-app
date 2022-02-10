@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { standingsSearch } from "../utils/searchreq";
 import { initialData } from "./data";
 import "./team.css";
-function TeamCard({ ApiKey }) {
+function TeamCard() {
   const [league, setLeague] = useState(initialData);
   const [leagueState, setLeagueState] = useState([]);
   const pos = {
@@ -31,7 +31,7 @@ function TeamCard({ ApiKey }) {
     // async self emmitting func  cant use async on use effect call back.
     (async () => {
       const url = "https://api.football-data.org/v2/competitions/PL/standings";
-      const results = await standingsSearch(url, ApiKey);
+      const results = await standingsSearch(url);
       if (!results) return;
       console.log("resr", results);
       setLeague(results.standings[0].table);
