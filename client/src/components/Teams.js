@@ -45,26 +45,34 @@ function TeamCard() {
     <div className=" container">
       {league
         ? league.map((teams, index) => (
-            <div key={index} className={pos[teams.position]}>
-              <div className=" flex max-w-[20%] m-0 ">
-                <h1 className="text-2xl text-white">
-                  Position {teams.position}
-                </h1>
+            // { for jsx} `string` ${javascript in string literal}
+            <div
+              key={index}
+              className={`${
+                pos[teams.position]
+              } grid md:grid-cols-7 grid-cols-4 flex-wrap `}
+            >
+              <div className=" statcolumn ml-2">
+                <h1 className="text-2xl text-white statrow">Position </h1>
+                <p className="statrow text-center w-16">{teams.position}</p>
+              </div>
+              <div className=" statcolumn ">
+                {teams.team.name}
                 <img
                   src={teams.team.crestUrl}
                   alt={teams.team.name}
                   className="w-20 m-0"
                 />
               </div>
-              <div className="max-w-sm m-0">
-                <p>
-                  {teams.team.name} points {teams.points}
-                </p>
-                <p>
-                  games played {teams.playedGames} wins {teams.won} draws{" "}
-                  {teams.draw} lost {teams.lost}
-                </p>
+              <div className="statcolumn">
+                <p>points {teams.points}</p>
               </div>
+              <div className=" statcolumn">
+                games played {teams.playedGames}
+              </div>
+              <div className="statcolumn">wins {teams.won}</div>
+              <div className="statcolumn">draws{teams.draw}</div>
+              <div className="statcolumn">lost {teams.lost}</div>
             </div>
           ))
         : "Loading"}

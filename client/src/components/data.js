@@ -1,4 +1,4 @@
-export const initialData=[
+export const initialData = [
     {
         "position": 1,
         "team": {
@@ -340,3 +340,17 @@ export const initialData=[
         "goalDifference": -11
     }
 ]
+
+
+export const playerDataExample = {
+    "id": 167115,
+    "name": "Ben Mee",
+    "firstName": null,
+    "lastName": null,
+    "dateOfBirth": "1989-09-21",
+    "countryOfBirth": null,
+    "nationality": "England",
+    "position": null,
+    "shirtNumber": null,
+    "lastUpdated": "2022-01-13T09:47:57Z"
+}
