@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
+require("dotenv").config();
 
 const resolvers = {
   Query: {
@@ -11,6 +12,18 @@ const resolvers = {
       } else {
         throw new AuthenticationError("login first!");
       }
+    },
+    getApi: async (parent, args, { user }) => {
+      console.log("get Api key");
+      let apiKey = await process.env.API_KEY;
+      console.log(apiKey);
+      return { apiKey };
+      // if (user) {
+      //   let API_KEY = process.env.API_KEY;
+      //   return API_KEY;
+      // } else {
+      //   throw new AuthenticationError("no Api Key provided for this use!");
+      // }
     },
   },
 

@@ -5,6 +5,9 @@ const typeDefs = gql`
     token: String!
     user: User!
   }
+  type ApiKey {
+    apiKey: String!
+  }
   type User {
     _id: ID!
     username: String!
@@ -13,6 +16,7 @@ const typeDefs = gql`
   }
   type Query {
     getUser: User
+    getApi: ApiKey
   }
   type Mutation {
     login(email: String!, password: String!): Token
