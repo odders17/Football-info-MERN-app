@@ -16,7 +16,7 @@ const typeDefs = gql`
   }
   type Query {
     getUser: User
-    getApi: Token
+    getApi: ApiKey
   }
   type Mutation {
     login(email: String!, password: String!): Token

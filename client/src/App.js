@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import TeamCard from "./components/Teams";
+import { useQuery } from "@apollo/client";
+import { getApi } from "./utils/queries";
 
+import TeamCard from "./components/Teams";
 import Navbar from "./components/Navbar";
 
 function App() {
+  const { loading, data } = useQuery(getApi);
+  console.log("data", data);
   return (
-<<<<<<< HEAD
     <Router>
       <Navbar />
+      {loading ? "...Loading" : data}
       <TeamCard />
     </Router>
-=======
-    // https://tailwindcss.com/docs/background-attachment#scroll
-    <div className="bg-scroll" style={backgroundstyle}>
-      <Router>
-        <Navbar />
-        <TeamCard />
-      </Router>
-    </div>
->>>>>>> main
   );
 }
 
