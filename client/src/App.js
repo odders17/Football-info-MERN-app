@@ -8,11 +8,10 @@ import Navbar from "./components/Navbar";
 
 function App() {
   const { loading, data } = useQuery(getApi);
-  console.log("data", data["getApi"]["apiKey"]);
   return (
     <Router>
       {/* <Navbar /> */}
-      {loading ? "...Loading" : <TeamCard ApiKEy={data["getApi"]["apiKey"]} />}
+      {loading ? "...Loading" : <TeamCard ApiKey={data["getApi"]["apiKey"]} />}
     </Router>
   );
 }
