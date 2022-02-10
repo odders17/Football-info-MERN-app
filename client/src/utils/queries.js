@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 // Graphql queries
 export const getUser = gql`
-  query getUser {
+  query getMe {
     me {
       _id
       username
@@ -10,13 +10,7 @@ export const getUser = gql`
     }
   }
 `;
-export const getApi = gql`
-  query {
-    getApi {
-      apiKey
-    }
-  }
-`;
+
 export const loginUserMutation = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
