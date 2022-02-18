@@ -4,6 +4,7 @@ import TeamCard from "./components/Teams";
 import trophy from "./images/trophybackground.png";
 import Navbar from "./components/Navbar";
 import Team from "./components/Team";
+import Player from "./components/Player";
 function App() {
   const backgroundstyle = {
     backgroundImage: `url(
@@ -17,7 +18,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<TeamCard />} />
-          <Route path="/team" element={<Team teamId="58" />} />
+          <Route path="/team" element={<Team/>} />
+          <Route path="/player" element={<Player/>} />
           {/* <Route path="/dashboard" element={<Dashboard authed={true} />} /> */}
         </Routes>
       </Router>
