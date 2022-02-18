@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { standingsSearch } from "../utils/searchreq";
 import { initialData } from "./data";
 import "./team.css";
@@ -63,6 +64,12 @@ function TeamCard() {
                   alt={teams.team.name}
                   className="w-20 m-0"
                 />
+                <Link
+                  to={{ pathname: "/team", search: `?teamId=${teams.team.id}` }}
+                >
+                  {" "}
+                  this team
+                </Link>
               </div>
               <div className="statcolumn">
                 <p>points {teams.points}</p>

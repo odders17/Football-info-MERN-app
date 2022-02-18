@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TeamCard from "./components/Teams";
 import trophy from "./images/trophybackground.png";
 import Navbar from "./components/Navbar";
+import Team from "./components/Team";
 function App() {
   const backgroundstyle = {
     backgroundImage: `url(
@@ -14,7 +15,11 @@ function App() {
     <div className="bg-scroll" style={backgroundstyle}>
       <Router>
         <Navbar />
-        <TeamCard />
+        <Routes>
+          <Route exact path="/" element={<TeamCard />} />
+          <Route path="/team" element={<Team teamId="58" />} />
+          {/* <Route path="/dashboard" element={<Dashboard authed={true} />} /> */}
+        </Routes>
       </Router>
     </div>
   );
