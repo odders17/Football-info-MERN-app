@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { teamSearch } from "../utils/searchreq";
 import pitch from "../images/pitch.jpg";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 // api request
 const getTeamData = async (teamId) => {
   const teamData = await teamSearch({ id: teamId });
@@ -49,6 +49,7 @@ function Team() {
             <div className="grid grid-cols-2">
               {teamData.squad.map((player, index) =>
                 player.position === "Goalkeeper" ? (
+                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <div>
                     <p
                       className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
@@ -60,12 +61,14 @@ function Team() {
                       </span>
                     </p>
                   </div>
+                  </Link>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Defender" ? (
+                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
                     className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
                     key={index}
@@ -75,12 +78,14 @@ function Team() {
                       {player.position}
                     </span>
                   </p>
+                  </Link>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Midfielder" ? (
+                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
                     className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
                     key={index}
@@ -90,12 +95,14 @@ function Team() {
                       {player.position}
                     </span>
                   </p>
+                  </Link>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Attacker" ? (
+                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
                     className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
                     key={index}
@@ -105,6 +112,7 @@ function Team() {
                       {player.position}
                     </span>
                   </p>
+                  </Link>
                 ) : (
                   ""
                 )
