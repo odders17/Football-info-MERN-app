@@ -17,7 +17,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<TeamCard />} />
-          <Route path="/team" element={<Team teamId={true} />} />
+          <Route path="/team" element={<Team teamId="58" />} />
           {/* <Route path="/dashboard" element={<Dashboard authed={true} />} /> */}
         </Routes>
       </Router>
