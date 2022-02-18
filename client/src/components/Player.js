@@ -1,22 +1,24 @@
 // https://api.football-data.org/v2/players/{id} (Ben Mee = 167115)
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { playerSearch } from "../utils/searchreq";
 import { playerDataExample } from "./data";
 import { PlayerInfo } from "./PlayerInfo"
 
-const getPlayerData = async () => {
-    const playerDataExample = await playerSearch({ id: "167108" })
+const getPlayerData = async id => {
+    const playerDataExample = await playerSearch({ id })
     return playerDataExample
 
 }
 
 function Player() {
-
+    const [searchParams, setSearchParams] = useSearchParams();
+    const playerId = searchParams.get("playerId")
     const [playerData, setPlayerData] = useState(playerDataExample)
 
     useEffect(() => {
-        getPlayerData().then(data => {
+        getPlayerData(playerId).then(data => {
 
             setPlayerData(data)
         })
