@@ -54,23 +54,25 @@ function TeamCard() {
               } grid md:grid-cols-7 grid-cols-4 flex-wrap `}
             >
               <div className=" statcolumn ml-2">
-                <h1 className="text-2xl text-white statrow">Position </h1>
+                <h1 className="text-4xl text-white statrow">Position </h1>
                 <p className="statrow text-center w-16">{teams.position}</p>
               </div>
-              <div className=" statcolumn ">
-                {teams.team.name}
-                <img
-                  src={teams.team.crestUrl}
-                  alt={teams.team.name}
-                  className="w-20 m-0"
-                />
-                <Link
+              <Link
                   to={{ pathname: "/team", search: `?teamId=${teams.team.id}` }}
                 >
-                  {" "}
-                  this team
-                </Link>
+              <div className=" grid grid-cols-2">
+              <div className=" statcolumn ">
+                {teams.team.name}
+                
               </div>
+              
+              <img
+                  src={teams.team.crestUrl}
+                  alt={teams.team.name}
+                  className="w-6 mx-0 my-auto"
+                />
+                </div>
+              </Link>
               <div className="statcolumn">
                 <p>points {teams.points}</p>
               </div>
@@ -78,8 +80,8 @@ function TeamCard() {
                 games played {teams.playedGames}
               </div>
               <div className="statcolumn">wins {teams.won}</div>
-              <div className="statcolumn">draws{teams.draw}</div>
-              <div className="statcolumn">lost {teams.lost}</div>
+              <div className="statcolumn">draws {teams.draw}</div>
+              <div className="statcolumn">defeats {teams.lost}</div>
             </div>
           ))
         : "Loading"}
