@@ -52,11 +52,11 @@ function Team() {
                   <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <div>
                     <p
-                      className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
-                      key={index}
+                    className="bg-green-400 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
+                    key={index}
                     >
                       {player.name}:{" "}
-                      <span className="font-bold text-blue-300 ">
+                      <span className="font-bold text-blue-700">
                         {player.position}
                       </span>
                     </p>
@@ -70,11 +70,11 @@ function Team() {
                 player.position === "Defender" ? (
                   <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
-                    className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
+                    className="bg-green-400 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
                   >
                     {player.name}:{" "}
-                    <span className="font-bold text-blue-300">
+                    <span className="font-bold text-blue-700">
                       {player.position}
                     </span>
                   </p>
@@ -87,11 +87,11 @@ function Team() {
                 player.position === "Midfielder" ? (
                   <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
-                    className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
+                    className="bg-green-400 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
                   >
                     {player.name}:{" "}
-                    <span className="font-bold text-blue-300">
+                    <span className="font-bold text-blue-700">
                       {player.position}
                     </span>
                   </p>
@@ -104,11 +104,11 @@ function Team() {
                 player.position === "Attacker" ? (
                   <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
-                    className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
+                    className="bg-green-400 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
                   >
                     {player.name}:{" "}
-                    <span className="font-bold text-blue-300">
+                    <span className="font-bold text-blue-700">
                       {player.position}
                     </span>
                   </p>

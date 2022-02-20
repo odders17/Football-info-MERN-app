@@ -2,9 +2,9 @@
     @apply m-2 rounded-xl shadow-xl m-2 p-2 border-2 border-black columns-2;
 }
 .container{
-    @apply flex-auto m-2;
+    @apply flex-auto m-2 mx-auto shadow-xl;
 }
-.statcolumn{ @apply grid-rows-2  flex-wrap flex-1 max-w-[20%] m-0 mt-6 mb-6 
+.statcolumn{ @apply grid-rows-2  flex-wrap flex-1 max-w-[20%] m-0 
 
 }
 .statrow{ @apply  text-2xl

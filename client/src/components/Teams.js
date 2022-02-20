@@ -43,48 +43,54 @@ function TeamCard() {
   console.log("league ", league);
 
   return (
-    <div className=" container">
-      {league
+<div className="flex flex-col">
+  <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8">
+      <div className="overflow-hidden">
+     <table className="min-w-full text-center">
+  <thead className="border-b bg-gray-800">
+    <tr>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">position</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4"></th>
+
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Team</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Points</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Games Played</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Wins</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Draws</th>
+      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Defeats</th>
+
+    </tr>
+  </thead >
+  <tbody>
+  {league
         ? league.map((teams, index) => (
-            // { for jsx} `string` ${javascript in string literal}
-            <div
-              key={index}
-              className={`${
-                pos[teams.position]
-              } grid md:grid-cols-7 grid-cols-4 flex-wrap `}
-            >
-              <div className=" statcolumn ml-2">
-                <h1 className="text-4xl text-white statrow">Position </h1>
-                <p className="statrow text-center w-16">{teams.position}</p>
-              </div>
-              <Link
-                  to={{ pathname: "/team", search: `?teamId=${teams.team.id}` }}
-                >
-              <div className=" grid grid-cols-2">
-              <div className=" statcolumn ">
-                {teams.team.name}
-                
-              </div>
-              
-              <img
-                  src={teams.team.crestUrl}
-                  alt={teams.team.name}
-                  className="w-6 mx-0 my-auto"
-                />
-                </div>
-              </Link>
-              <div className="statcolumn">
-                <p>points {teams.points}</p>
-              </div>
-              <div className=" statcolumn">
-                games played {teams.playedGames}
-              </div>
-              <div className="statcolumn">wins {teams.won}</div>
-              <div className="statcolumn">draws {teams.draw}</div>
-              <div className="statcolumn">defeats {teams.lost}</div>
-            </div>
-          ))
-        : "Loading"}
+    <tr className="bg-white border-b" key={index}>
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{teams.position}</td>
+      {/* <td>{teams.team.name}</td> */}
+      
+<td className="flex  ">
+  <Link  to={{ pathname: "/team", search: `?teamId=${teams.team.id}` }}>
+    <img src={teams.team.crestUrl} alt={teams.team.name} className="w-10 mt-1" />
+    
+  </Link>
+</td>
+      <td>{teams.team.name}</td>
+      <td>{teams.points}</td>
+      <td>{teams.playedGames}</td>
+      <td>{teams.won}</td>
+      <td>{teams.draw}</td>
+      <td>{teams.lost}</td>
+    </tr>
+        )):"Loading..."}
+  </tbody>
+
+
+</table>
+</div>
+  </div>
+  </div>
+    
     </div>
   );
 }
