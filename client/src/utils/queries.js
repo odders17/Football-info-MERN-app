@@ -7,6 +7,7 @@ export const getUser = gql`
       _id
       username
       email
+      favTeams
     }
   }
 `;
@@ -26,6 +27,7 @@ export const loginUserMutation = gql`
         avatar
         username
         email
+        favTeams
       }
     }
   }
