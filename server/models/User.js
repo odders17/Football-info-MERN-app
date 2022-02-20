@@ -26,6 +26,7 @@ const userSchema = new Schema(
       required: true,
       minlength: 6,
     },
+    favTeams: [String],
   },
 
   // set this to use virtual below
