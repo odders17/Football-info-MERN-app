@@ -1,7 +1,7 @@
 import React from "react";
 
-function SignupForm() {
-  return <p>dummy </p>;
+function SignupForm({ signUpForm }) {
+  return <>{signUpForm ? "SignUp" : "Login"}</>;
 }
 
 export default SignupForm;
