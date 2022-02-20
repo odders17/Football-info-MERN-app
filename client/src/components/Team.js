@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
-import {teamSearch} from "../utils/searchreq";
+import { teamSearch } from "../utils/searchreq";
 import pitch from "../images/pitch.jpg";
-
-const getTeamData = async (ApiKey) => {
-  const teamData = await teamSearch({ id: "328" }, ApiKey);
+import { useSearchParams, Link } from "react-router-dom";
+// api request
+const getTeamData = async (teamId) => {
+  const teamData = await teamSearch({ id: teamId });
   return teamData;
 };
 
-function Team({ ApiKey }) {
+function Team() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const teamId = searchParams.get("teamId");
   const [teamData, setTeamData] = useState(null);
+  console.log("this is props " + teamId);
 
   useEffect(() => {
-    getTeamData(ApiKey).then((data) => {
+    getTeamData(teamId).then((data) => {
       console.log(data);
       setTeamData(data);
     });
@@ -28,7 +32,7 @@ function Team({ ApiKey }) {
               backgroundSize: "cover",
             }}
           >
-            <div className="bg-white p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 grid grid-cols-1 justify-center">
+            <div className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 grid grid-cols-1 justify-center">
               <h1 className="text-2xl m-auto">
                 Team: {JSON.stringify(teamData.name)}
               </h1>
@@ -45,9 +49,10 @@ function Team({ ApiKey }) {
             <div className="grid grid-cols-2">
               {teamData.squad.map((player, index) =>
                 player.position === "Goalkeeper" ? (
+                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <div>
                     <p
-                      className="bg-white p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
+                      className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
                       key={index}
                     >
                       {player.name}:{" "}
@@ -56,14 +61,16 @@ function Team({ ApiKey }) {
                       </span>
                     </p>
                   </div>
+                  </Link>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Defender" ? (
+                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
-                    className="bg-white p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
+                    className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
                     key={index}
                   >
                     {player.name}:{" "}
@@ -71,14 +78,16 @@ function Team({ ApiKey }) {
                       {player.position}
                     </span>
                   </p>
+                  </Link>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Midfielder" ? (
+                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
-                    className="bg-white p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
+                    className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
                     key={index}
                   >
                     {player.name}:{" "}
@@ -86,14 +95,16 @@ function Team({ ApiKey }) {
                       {player.position}
                     </span>
                   </p>
+                  </Link>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Attacker" ? (
+                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
-                    className="bg-white p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
+                    className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap"
                     key={index}
                   >
                     {player.name}:{" "}
@@ -101,6 +112,7 @@ function Team({ ApiKey }) {
                       {player.position}
                     </span>
                   </p>
+                  </Link>
                 ) : (
                   ""
                 )
@@ -114,6 +126,5 @@ function Team({ ApiKey }) {
     </>
   );
 }
-  
-  
-  export default Team;
+
+export default Team;

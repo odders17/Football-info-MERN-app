@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { standingsSearch } from "../utils/searchreq";
 import { initialData } from "./data";
 import "./team.css";
-function TeamCard({ ApiKey }) {
+function TeamCard() {
   const [league, setLeague] = useState(initialData);
   const [leagueState, setLeagueState] = useState([]);
   const pos = {
@@ -31,7 +32,7 @@ function TeamCard({ ApiKey }) {
     // async self emmitting func  cant use async on use effect call back.
     (async () => {
       const url = "https://api.football-data.org/v2/competitions/PL/standings";
-      const results = await standingsSearch(url, ApiKey);
+      const results = await standingsSearch(url);
       if (!results) return;
       console.log("resr", results);
       setLeague(results.standings[0].table);
@@ -53,17 +54,25 @@ function TeamCard({ ApiKey }) {
               } grid md:grid-cols-7 grid-cols-4 flex-wrap `}
             >
               <div className=" statcolumn ml-2">
-                <h1 className="text-2xl text-white statrow">Position </h1>
+                <h1 className="text-4xl text-white statrow">Position </h1>
                 <p className="statrow text-center w-16">{teams.position}</p>
               </div>
+              <Link
+                  to={{ pathname: "/team", search: `?teamId=${teams.team.id}` }}
+                >
+              <div className=" grid grid-cols-2">
               <div className=" statcolumn ">
                 {teams.team.name}
-                <img
+                
+              </div>
+              
+              <img
                   src={teams.team.crestUrl}
                   alt={teams.team.name}
-                  className="w-20 m-0"
+                  className="w-6 mx-0 my-auto"
                 />
-              </div>
+                </div>
+              </Link>
               <div className="statcolumn">
                 <p>points {teams.points}</p>
               </div>
@@ -71,8 +80,8 @@ function TeamCard({ ApiKey }) {
                 games played {teams.playedGames}
               </div>
               <div className="statcolumn">wins {teams.won}</div>
-              <div className="statcolumn">draws{teams.draw}</div>
-              <div className="statcolumn">lost {teams.lost}</div>
+              <div className="statcolumn">draws {teams.draw}</div>
+              <div className="statcolumn">defeats {teams.lost}</div>
             </div>
           ))
         : "Loading"}
