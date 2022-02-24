@@ -3,9 +3,7 @@
 Gets the latest statistics on football leagues around the world
 
 ```
-One of the Great British pastimes is having a pint at your local, part of that experience, was on occasion taking parting part in the pub quiz. However since Covid 19. This has been one of many things we have lost!
-Through a desire to retain that social interactivity, lots of communities went digital for their quizzing needs. One of questions this raises is how do you go digital?
-InQuizitive was the conceptualised answer to this question. Our MVP 1 enables a user to log on, create quizzes , take quizzes and few their previous scores.
+
 
 
 ```
