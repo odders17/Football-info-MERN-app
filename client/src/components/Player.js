@@ -26,7 +26,7 @@ function Player() {
 
     }, [])
     return (
-        <div className="m-3 border-2 bg-yellow-400 opacity-90 w-75 border-black mx-auto  rounded-xl text-3xl">
+        <div className="m-3 border-2 bg-gray-600 opacity-90 w-75 border-black mx-auto  rounded-xl text-3xl">
 
             <PlayerInfo data={{ info: playerData.name, title: "Name" }} />
             <PlayerInfo data={{ info: playerData.dateOfBirth, title: "Date of birth" }} />

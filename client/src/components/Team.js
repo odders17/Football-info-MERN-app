@@ -24,7 +24,7 @@ function Team() {
   return (
     <>
       {teamData ? (
-        <div className="bg-black text-black p-20">
+        <div className="bg-gray-800 text-black p-20">
           <div
             style={{
               backgroundImage: `url(${pitch})`,
@@ -32,7 +32,7 @@ function Team() {
               backgroundSize: "cover",
             }}
           >
-            <div className="bg-green-600 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 grid grid-cols-1 justify-center">
+            <div className="bg-green-200 p-2 rounded-xl -mt-2 m-auto drop-shadow-2xl mb-2 w-80 grid grid-cols-1 justify-center">
               <h1 className="text-2xl m-auto">
                 Team: {JSON.stringify(teamData.name)}
               </h1>
@@ -52,7 +52,7 @@ function Team() {
                   <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <div>
                     <p
-                    className="bg-green-400 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
                     >
                       {player.name}:{" "}
@@ -70,7 +70,7 @@ function Team() {
                 player.position === "Defender" ? (
                   <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
-                    className="bg-green-400 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
                   >
                     {player.name}:{" "}
@@ -87,7 +87,7 @@ function Team() {
                 player.position === "Midfielder" ? (
                   <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
-                    className="bg-green-400 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
                   >
                     {player.name}:{" "}
@@ -104,7 +104,7 @@ function Team() {
                 player.position === "Attacker" ? (
                   <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
                   <p
-                    className="bg-green-400 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
                   >
                     {player.name}:{" "}

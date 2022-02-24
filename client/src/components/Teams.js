@@ -52,37 +52,36 @@ function TeamCard() {
     <tr>
       <th  scope="col" className="text-sm font-medium text-white px-6 py-4">position</th>
       <th  scope="col" className="text-sm font-medium text-white px-6 py-4"></th>
-
       <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Team</th>
       <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Points</th>
       <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Games Played</th>
       <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Wins</th>
       <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Draws</th>
       <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Defeats</th>
-
     </tr>
   </thead >
   <tbody>
   {league
         ? league.map((teams, index) => (
-    <tr className="bg-white border-b" key={index}>
-      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{teams.position}</td>
-      {/* <td>{teams.team.name}</td> */}
-      
-<td className="flex  ">
-  <Link  to={{ pathname: "/team", search: `?teamId=${teams.team.id}` }}>
-    <img src={teams.team.crestUrl} alt={teams.team.name} className="w-10 mt-1" />
-    
-  </Link>
-</td>
-      <td>{teams.team.name}</td>
-      <td>{teams.points}</td>
-      <td>{teams.playedGames}</td>
-      <td>{teams.won}</td>
-      <td>{teams.draw}</td>
-      <td>{teams.lost}</td>
-    </tr>
-        )):"Loading..."}
+  <tr className="bg-white border-b" key={index}>
+    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{teams.position}</td>
+    <td className="flex  ">
+      <Link  to={{ pathname: "/team", search: `?teamId=${teams.team.id}` }}>
+        <img src={teams.team.crestUrl} alt={teams.team.name} className="w-10 mt-1" />
+      </Link>
+    </td>
+    <td>
+      <Link  to={{ pathname: "/team", search: `?teamId=${teams.team.id}`}}>
+        {teams.team.name}
+      </Link>
+    </td>
+    <td>{teams.points}</td>
+    <td>{teams.playedGames}</td>
+    <td>{teams.won}</td>
+    <td>{teams.draw}</td>
+    <td>{teams.lost}</td>
+  </tr>
+       )):"Loading..."}
   </tbody>
 
 
