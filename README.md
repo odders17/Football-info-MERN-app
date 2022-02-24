@@ -3,8 +3,8 @@
 Gets the latest statistics on football leagues around the world
 
 ```
-
-
+Football-info provides football data and statistics (live scores, fixtures, tables, squads, lineups/subs, etc.) in a machine-readable way for the top leagues around the world.
+I won't announce how awesome football-info is, you're welcome to find out by yourself. Access to the top football competitions is and will be free forever as this was the initial purpose to set up the project.
 
 ```
 
