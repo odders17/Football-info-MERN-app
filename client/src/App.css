@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tablebody{
+  display: table;
+  width: 100%;
+}
+
+

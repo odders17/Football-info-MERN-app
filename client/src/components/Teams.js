@@ -60,7 +60,7 @@ function TeamCard() {
       <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Defeats</th>
     </tr>
   </thead >
-  <tbody>
+  <tbody className="tablebody">
   {league
         ? league.map((teams, index) => (
   <tr className="bg-white border-b" key={index}>
