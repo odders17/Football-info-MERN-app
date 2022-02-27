@@ -50,7 +50,7 @@ function Team() {
               {teamData.squad.map((player, index) =>
                 player.position === "Goalkeeper" ? (
                   <div
-                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-xs"
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-[8px]"
                     key={index}
                   >
                     <Link
@@ -72,7 +72,7 @@ function Team() {
               {teamData.squad.map((player, index) =>
                 player.position === "Defender" ? (
                   <div
-                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-xs"
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-[8px]"
                     key={index}
                   >
                     <Link
@@ -94,7 +94,7 @@ function Team() {
               {teamData.squad.map((player, index) =>
                 player.position === "Midfielder" ? (
                   <div
-                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-xs"
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-[8px]"
                     key={index}
                   >
                     <Link
@@ -116,7 +116,7 @@ function Team() {
               {teamData.squad.map((player, index) =>
                 player.position === "Attacker" ? (
                   <div
-                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-xs"
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-[8px]"
                     key={index}
                   >
                     <Link
