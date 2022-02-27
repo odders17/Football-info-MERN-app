@@ -46,7 +46,7 @@ function Team() {
               />
             </div>
 
-            <div className="grid grid-cols-2">
+            <div className="mobilecollums grid grid-cols-2">
               {teamData.squad.map((player, index) =>
                 player.position === "Goalkeeper" ? (
                   <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
