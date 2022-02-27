@@ -32,7 +32,7 @@ function Team() {
               backgroundSize: "cover",
             }}
           >
-            <div className="bg-green-200 p-2 rounded-xl -mt-2 m-auto drop-shadow-2xl mb-2 w-80 grid grid-cols-1 justify-center">
+            <div className="bg-green-200 p-2 rounded-xl -mt-2 m-auto drop-shadow-2xl mb-2 w-80 grid grid-cols-1 justify-center sm  max-w-[240px]  ">
               <h1 className="text-2xl m-auto">
                 Team: {JSON.stringify(teamData.name)}
               </h1>
@@ -49,70 +49,88 @@ function Team() {
             <div className="mobilecollums grid grid-cols-2">
               {teamData.squad.map((player, index) =>
                 player.position === "Goalkeeper" ? (
-                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
-                  <div>
-                    <p
-                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
+                  <div
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-xs"
                     key={index}
+                  >
+                    <Link
+                      to={{
+                        pathname: "/player",
+                        search: `?playerId=${player.id}`,
+                      }}
                     >
                       {player.name}:{" "}
                       <span className="font-bold text-blue-700">
                         {player.position}
                       </span>
-                    </p>
+                    </Link>
                   </div>
-                  </Link>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Defender" ? (
-                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
-                  <p
-                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
+                  <div
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-xs"
                     key={index}
                   >
-                    {player.name}:{" "}
-                    <span className="font-bold text-blue-700">
-                      {player.position}
-                    </span>
-                  </p>
-                  </Link>
+                    <Link
+                      to={{
+                        pathname: "/player",
+                        search: `?playerId=${player.id}`,
+                      }}
+                    >
+                      {player.name}:{" "}
+                      <span className="font-bold text-blue-700">
+                        {player.position}
+                      </span>
+                    </Link>
+                  </div>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Midfielder" ? (
-                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
-                  <p
-                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
+                  <div
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-xs"
                     key={index}
                   >
-                    {player.name}:{" "}
-                    <span className="font-bold text-blue-700">
-                      {player.position}
-                    </span>
-                  </p>
-                  </Link>
+                    <Link
+                      to={{
+                        pathname: "/player",
+                        search: `?playerId=${player.id}`,
+                      }}
+                    >
+                      {player.name}:{" "}
+                      <span className="font-bold text-blue-700">
+                        {player.position}
+                      </span>
+                    </Link>
+                  </div>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Attacker" ? (
-                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
-                  <p
-                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
+                  <div
+                    className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75 sm  max-w-[200px] ml-2 text-xs"
                     key={index}
                   >
-                    {player.name}:{" "}
-                    <span className="font-bold text-blue-700">
-                      {player.position}
-                    </span>
-                  </p>
-                  </Link>
+                    <Link
+                      to={{
+                        pathname: "/player",
+                        search: `?playerId=${player.id}`,
+                      }}
+                    >
+                      {player.name}:{" "}
+                      <span className="font-bold text-blue-700">
+                        {player.position}
+                      </span>
+                    </Link>
+                  </div>
                 ) : (
                   ""
                 )
