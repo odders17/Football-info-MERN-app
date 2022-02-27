@@ -49,70 +49,88 @@ function Team() {
             <div className="mobilecollums grid grid-cols-2">
               {teamData.squad.map((player, index) =>
                 player.position === "Goalkeeper" ? (
-                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
-                  <div>
-                    <p
+                  <div
                     className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
+                  >
+                    <Link
+                      to={{
+                        pathname: "/player",
+                        search: `?playerId=${player.id}`,
+                      }}
                     >
                       {player.name}:{" "}
                       <span className="font-bold text-blue-700">
                         {player.position}
                       </span>
-                    </p>
+                    </Link>
                   </div>
-                  </Link>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Defender" ? (
-                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
-                  <p
+                  <div
                     className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
                   >
-                    {player.name}:{" "}
-                    <span className="font-bold text-blue-700">
-                      {player.position}
-                    </span>
-                  </p>
-                  </Link>
+                    <Link
+                      to={{
+                        pathname: "/player",
+                        search: `?playerId=${player.id}`,
+                      }}
+                    >
+                      {player.name}:{" "}
+                      <span className="font-bold text-blue-700">
+                        {player.position}
+                      </span>
+                    </Link>
+                  </div>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Midfielder" ? (
-                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
-                  <p
+                  <div
                     className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
                   >
-                    {player.name}:{" "}
-                    <span className="font-bold text-blue-700">
-                      {player.position}
-                    </span>
-                  </p>
-                  </Link>
+                    <Link
+                      to={{
+                        pathname: "/player",
+                        search: `?playerId=${player.id}`,
+                      }}
+                    >
+                      {player.name}:{" "}
+                      <span className="font-bold text-blue-700">
+                        {player.position}
+                      </span>
+                    </Link>
+                  </div>
                 ) : (
                   ""
                 )
               )}
               {teamData.squad.map((player, index) =>
                 player.position === "Attacker" ? (
-                  <Link to={{pathname: "/player", search: `?playerId=${player.id}`}}>
-                  <p
+                  <div
                     className="bg-green-100 p-2 rounded-md m-auto drop-shadow-2xl mb-2 w-80 whitespace-nowrap opacity-75"
                     key={index}
                   >
-                    {player.name}:{" "}
-                    <span className="font-bold text-blue-700">
-                      {player.position}
-                    </span>
-                  </p>
-                  </Link>
+                    <Link
+                      to={{
+                        pathname: "/player",
+                        search: `?playerId=${player.id}`,
+                      }}
+                    >
+                      {player.name}:{" "}
+                      <span className="font-bold text-blue-700">
+                        {player.position}
+                      </span>
+                    </Link>
+                  </div>
                 ) : (
                   ""
                 )
