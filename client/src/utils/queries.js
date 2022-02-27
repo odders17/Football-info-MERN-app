@@ -18,13 +18,25 @@ export const getApi = gql`
     }
   }
 `;
+export const signUpMutation = gql`
+  mutation signUp($username: String!, $email: String!, $password: String!) {
+    signUp(username: $username, email: $email, password: $password) {
+      token
+      user {
+        _id
+        email
+        username
+        favTeams
+      }
+    }
+  }
+`;
 export const loginUserMutation = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
       user {
         _id
-        avatar
         username
         email
         favTeams
