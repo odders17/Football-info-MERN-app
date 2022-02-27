@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { playerSearch } from "../utils/searchreq";
 import { playerDataExample } from "./data";
-import { PlayerInfo } from "./PlayerInfo"
+import { PlayerInfo } from "./PlayerInfo";
+import royImage from "../images/roy.jpg"
 
 const getPlayerData = async id => {
     const playerDataExample = await playerSearch({ id })
@@ -26,13 +27,18 @@ function Player() {
 
     }, [])
     return (
-        <div className="m-3 border-2 bg-gray-600 opacity-90 w-75 border-black mx-auto  rounded-xl text-3xl">
+        <div className="grid grid-cols-2 m-3 border-2 bg-gray-600 opacity-90 w-75 border-black mx-auto  rounded-xl text-3xl">
 
-            <PlayerInfo data={{ info: playerData.name, title: "Name" }} />
-            <PlayerInfo data={{ info: playerData.dateOfBirth, title: "Date of birth" }} />
-            <PlayerInfo data={{ info: playerData.position, title: "Position" }} />
-            <PlayerInfo data={{ info: playerData.shirtNumber, title: "Shirt Number" }} />
-            <PlayerInfo data={{ info: playerData.nationality, title: "National Team" }} />
+            <div>
+                <PlayerInfo data={{ info: playerData.name, title: "Name" }} />
+                <PlayerInfo data={{ info: playerData.dateOfBirth, title: "Date of birth" }} />
+                <PlayerInfo data={{ info: playerData.position, title: "Position" }} />
+                <PlayerInfo data={{ info: playerData.shirtNumber, title: "Shirt Number" }} />
+                <PlayerInfo data={{ info: playerData.nationality, title: "National Team" }} /> 
+            </div>
+            <div> 
+                <img src={royImage} alt="Roy of the Rovers" />
+            </div>
 
         </div>
     );
