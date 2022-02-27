@@ -28,18 +28,11 @@ const resolvers = {
   },
 
   Mutation: {
-    signUp: async (
-      parent,
-      { avatar, username, email, password, password2 }
-    ) => {
+    signUp: async (parent, { avatar, username, email, password }) => {
       console.log("new user sign up");
-      if (password != password2) {
-        throw new AuthenticationError("passwords should match!");
-      }
 
       try {
         const user = await User.create({
-          avatar,
           username,
           email,
           password,
