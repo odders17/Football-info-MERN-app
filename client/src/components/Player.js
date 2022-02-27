@@ -37,7 +37,7 @@ function Player() {
                 <PlayerInfo data={{ info: playerData.nationality, title: "National Team" }} /> 
             </div>
             <div> 
-                <img src={royImage} alt="Roy of the Rovers" />
+                <img src={royImage} className="w-1/2 m-auto" alt="Roy of the Rovers" />
             </div>
 
         </div>
