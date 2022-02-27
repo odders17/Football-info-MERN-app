@@ -67,7 +67,7 @@ function SignupForm({ signUpForm, setShowModal }) {
       } catch (err) {
         console.log(err.message);
       }
-      setShowModal(false);
+      // setShowModal(false);
     }
     return errors;
   };
