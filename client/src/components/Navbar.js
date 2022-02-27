@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "./logo.png";
 import Login from "./Login";
+import Auth from "../utils/auth";
+
 export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
@@ -40,10 +42,19 @@ export default function Navbar({ fixed }) {
                 </a>
               </li>
             </ul>
-            <Login />
+            <Login title="Login/SignUp" />
           </div>
         </div>
       </nav>
+      {Auth.loggedIn() ? (
+        <h1 className="  px-3 text-3xl shadow-md bg-gradient-to-r from-purple-900 to-purple-100 text-center p-2 ">
+          <span className="text-white p-2">
+            {Auth.getProfile().data.username.toUpperCase()}
+          </span>{" "}
+        </h1>
+      ) : (
+        ""
+      )}
     </>
   );
 }
