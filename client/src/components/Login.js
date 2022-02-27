@@ -2,7 +2,7 @@ import React from "react";
 import Auth from "../utils/auth";
 import SignUpForm from "./SignupForm";
 
-export default function Modal() {
+export default function Modal({ title }) {
   const [showModal, setShowModal] = React.useState(false);
   const [formType, setFormType] = React.useState(false);
   return (
@@ -21,7 +21,7 @@ export default function Modal() {
           type="button"
           onClick={() => setShowModal(true)}
         >
-          Login/SignUp
+          {title}
         </button>
       )}
       {showModal ? (

@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import Team from "./components/Team";
 import Player from "./components/Player";
 function App() {
+  const [showModal, setShowModal] = React.useState(false);
+
   const { loading, data } = useQuery(getApi);
   const backgroundstyle = {
     backgroundImage: `url(

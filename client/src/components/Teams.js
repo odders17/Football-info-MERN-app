@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { standingsSearch } from "../utils/searchreq";
 import { initialData } from "./data";
+import Auth from "../utils/auth";
+import Login from "./Login";
 import "./team.css";
+import backimage from "../images/pitch.jpg";
 function TeamCard() {
   const [league, setLeague] = useState(initialData);
   const [leagueState, setLeagueState] = useState([]);
@@ -43,53 +46,114 @@ function TeamCard() {
   console.log("league ", league);
 
   return (
-<div className="flex flex-col">
-  <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-    <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-      <div className="overflow-hidden">
-     <table className="min-w-full text-center">
-  <thead className="border-b bg-gray-800">
-    <tr>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">position</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4"></th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Team</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Points</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Games Played</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Wins</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Draws</th>
-      <th  scope="col" className="text-sm font-medium text-white px-6 py-4">Defeats</th>
-    </tr>
-  </thead >
-  <tbody>
-  {league
-        ? league.map((teams, index) => (
-  <tr className="bg-white border-b" key={index}>
-    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{teams.position}</td>
-    <td className="flex  ">
-      <Link  to={{ pathname: "/team", search: `?teamId=${teams.team.id}` }}>
-        <img src={teams.team.crestUrl} alt={teams.team.name} className="w-10 mt-1" />
-      </Link>
-    </td>
-    <td>
-      <Link  to={{ pathname: "/team", search: `?teamId=${teams.team.id}`}}>
-        {teams.team.name}
-      </Link>
-    </td>
-    <td>{teams.points}</td>
-    <td>{teams.playedGames}</td>
-    <td>{teams.won}</td>
-    <td>{teams.draw}</td>
-    <td>{teams.lost}</td>
-  </tr>
-       )):"Loading..."}
-  </tbody>
-
-
-</table>
-</div>
-  </div>
-  </div>
-    
+    <div className="flex flex-col">
+      {Auth.loggedIn() ? (
+        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8">
+            <div className="overflow-hidden">
+              <table className="min-w-full text-center">
+                <thead className="border-b bg-gray-800">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="text-sm font-medium text-white px-6 py-4"
+                    >
+                      position
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-sm font-medium text-white px-6 py-4"
+                    ></th>
+                    <th
+                      scope="col"
+                      className="text-sm font-medium text-white px-6 py-4"
+                    >
+                      Team
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-sm font-medium text-white px-6 py-4"
+                    >
+                      Points
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-sm font-medium text-white px-6 py-4"
+                    >
+                      Games Played
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-sm font-medium text-white px-6 py-4"
+                    >
+                      Wins
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-sm font-medium text-white px-6 py-4"
+                    >
+                      Draws
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-sm font-medium text-white px-6 py-4"
+                    >
+                      Defeats
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {league
+                    ? league.map((teams, index) => (
+                        <tr className="bg-white border-b" key={index}>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            {teams.position}
+                          </td>
+                          <td className="flex  ">
+                            <Link
+                              to={{
+                                pathname: "/team",
+                                search: `?teamId=${teams.team.id}`,
+                              }}
+                            >
+                              <img
+                                src={teams.team.crestUrl}
+                                alt={teams.team.name}
+                                className="w-10 mt-1"
+                              />
+                            </Link>
+                          </td>
+                          <td>
+                            <Link
+                              to={{
+                                pathname: "/team",
+                                search: `?teamId=${teams.team.id}`,
+                              }}
+                            >
+                              {teams.team.name}
+                            </Link>
+                          </td>
+                          <td>{teams.points}</td>
+                          <td>{teams.playedGames}</td>
+                          <td>{teams.won}</td>
+                          <td>{teams.draw}</td>
+                          <td>{teams.lost}</td>
+                        </tr>
+                      ))
+                    : "Loading..."}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="mx-auto mt-[100px] text-center  ">
+          <h1 className="bg-red-500 p-2 text-white text-3xl">
+            Login First to use this app!
+          </h1>
+          <Login title="Login" /> <img src={backimage} />
+        </div>
+      )}
     </div>
   );
 }

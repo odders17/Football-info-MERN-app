@@ -42,7 +42,7 @@ export default function Navbar({ fixed }) {
                 </a>
               </li>
             </ul>
-            <Login />
+            <Login title="Login/SignUp" />
           </div>
         </div>
       </nav>
