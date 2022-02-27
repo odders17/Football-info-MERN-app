@@ -102,7 +102,7 @@ function TeamCard() {
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="tablebody">
                   {league
                     ? league.map((teams, index) => (
                         <tr className="bg-white border-b" key={index}>
